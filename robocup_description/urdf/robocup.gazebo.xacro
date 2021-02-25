@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="RefLink" params="ref">
+        <gazebo reference="${ref}">
+            <kp>1000.0</kp>
+            <kd>100.0</kd>
+            <mu1>30.0</mu1>
+            <mu2>30.0</mu2>
+            <maxVel>1.0</maxVel>
+            <minDepth>0.001</minDepth>            
+        </gazebo>
+    </xacro:macro>
+
+    <gazebo reference="world"></gazebo>
+    <RefLink ref="Torso"/>
+    <RefLink ref="Neck"/>
+    <RefLink ref="Head"/>
+    
+    <RefLink ref="LPelvis"/>
+    <RefLink ref="LHip"/>
+    <RefLink ref="LThigh"/>
+    <RefLink ref="LTibia"/>
+    <RefLink ref="LAnkle"/>
+    <RefLink ref="LSole"/>
+    <RefLink ref="LShoulder"/>
+    <RefLink ref="LBicep"/>
+    <RefLink ref="LElbow"/>
+    <RefLink ref="LForeArm"/>
+    <RefLink ref="LWrist"/>
+    <RefLink ref="LFinger11"/>
+    <RefLink ref="Lfinger12"/>
+    <RefLink ref="LFinger13"/>
+    <RefLink ref="LFinger21"/>
+    <RefLink ref="LFinger22"/>
+    <RefLink ref="LFinger23"/>
+    <RefLink ref="LGripper"/>
+    <RefLink ref="LThumb1"/>
+    <RefLink ref="LThumb2"/>
+
+    <RefLink ref="RPelvis"/>
+    <RefLink ref="RHip"/>
+    <RefLink ref="RThigh"/>
+    <RefLink ref="RTibia"/>
+    <RefLink ref="RAnkle"/>
+    <RefLink ref="RSole"/>
+    <RefLink ref="RShoulder"/>
+    <RefLink ref="RBicep"/>
+    <RefLink ref="RElbow"/>
+    <RefLink ref="RForeArm"/>
+    <RefLink ref="RWrist"/>
+    <RefLink ref="RFinger11"/>
+    <RefLink ref="Rfinger12"/>
+    <RefLink ref="RFinger13"/>
+    <RefLink ref="RFinger21"/>
+    <RefLink ref="RFinger22"/>
+    <RefLink ref="RFinger23"/>
+    <RefLink ref="RGripper"/>
+    <RefLink ref="RThumb1"/>
+    <RefLink ref="RThumb2"/>
+    
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>robocup</robotNamespace>
+            <controlPeriod>0.001</controlPeriod>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+</robot>

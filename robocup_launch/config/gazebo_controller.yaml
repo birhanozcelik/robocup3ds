@@ -1,0 +1,307 @@
+gazebo_ros_control:
+  pid_gains:
+    HeadYaw:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    HeadPitch:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LHipYawPitch:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LHipRoll:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    LHipPitch:
+      p: 400.0
+      i: 400.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LKneePitch:
+      p: 400.0
+      i: 400.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LAnklePitch:
+      p: 400.0
+      i: 400.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LAnkleRoll:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    LShoulderPitch:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LShoulderRoll:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LElbowYaw:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LElbowRoll:
+      p: 1.0
+      i: 1.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    LWristYaw:
+      p: 100000.0
+      i: 1000.0
+      d: 100.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LFinger1:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LFinger1_1:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LFinger1_2:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    LFinger2:
+      p: 100000.0
+      i: 1000.0
+      d: 100.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LFinger2_1:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LFinger2_2:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LHand:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    LThumb1_joint:
+      p: 100000.0
+      i: 1000.0
+      d: 100.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    LThumb1_2:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RHipYawPitch:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RHipRoll:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    RHipPitch:
+      p: 400.0
+      i: 400.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RKneePitch:
+      p: 400.0
+      i: 400.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RAnklePitch:
+      p: 400.0
+      i: 400.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RAnkleRoll:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    RShoulderPitch:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RShoulderRoll:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RElbowYaw:
+      p: 160.0
+      i: 160.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RElbowRoll:
+      p: 1.0
+      i: 1.0
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    RWristYaw:
+      p: 100000.0
+      i: 1000.0
+      d: 100.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RFinger1:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RFinger1_1:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RFinger1_2:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    RFinger2:
+      p: 100000.0
+      i: 1000.0
+      d: 100.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RFinger2_1:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RFinger2_2:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RHand:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    RThumb1_joint:
+      p: 100000.0
+      i: 1000.0
+      d: 500.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    RThumb1_2:
+      p: 100000.0
+      i: 250.0
+      d: 1000.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+

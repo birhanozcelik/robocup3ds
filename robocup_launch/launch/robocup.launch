@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="use_robot_name" default="robocup"/>
 
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
@@ -17,4 +18,23 @@
     
     </include>                           
     
+    <group ns = "$(arg use_robot_name)">
+      <arg name="model" default="$(find robocup_description)/urdf/robocup1.urdf.xacro"/>
+
+      <rosparam file="$(find robocup_launch)/config/gazebo_controller.yaml" command="load" />
+      <param name="robot_description"
+        command="$(find xacro)/xacro --inorder $(arg model)"/>
+
+      <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+        <param name="publish_frequency" type="double" value="100.0" />
+        <param name="tf_prefix" value="$(arg use_robot_name)" />
+      </node>
+
+      <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
+        args="-urdf -model $(arg use_robot_name) -x 0.0 -y 0.0 -Y 1.5708 -param robot_description"/>
+      <!-- ros_control robotis manipulator launch file -->
+      <include file="$(find robocup_launch)/launch/robocup_controller.launch"></include>
+    </group>
+
+
 </launch>

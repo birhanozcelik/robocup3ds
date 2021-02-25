@@ -1,0 +1,974 @@
+<?xml version="1.0" ?>
+<robot name="robocup" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find robocup_description)/urdf/robocup.gazebo.xacro" />
+  <xacro:macro name="SimpleTransmission" params="joint n">
+    <transmission name="tran${n}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint}">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor${n}">
+          <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  
+
+  <joint name="HeadYaw" type="revolute">
+    <parent link="Torso"/>
+    <child link="Neck"/>
+    <origin rpy="0  0  0" xyz="0      0      0.4765"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="HeadPitch" type="revolute">
+    <parent link="Neck"/>
+    <child link="Head"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="40.25" lower="-0.671952" upper="0.514872" velocity="7.19407"/>
+  </joint>
+  <joint name="LHipYawPitch" type="revolute">
+    <parent link="Torso"/>
+    <child link="LPelvis"/>
+    <origin rpy="0  0  0" xyz="0     0.05   0.265"/>
+    <axis xyz="0      0.7071 -0.7071"/>
+    <limit effort="59.5" lower="-1.14529" upper="0.740718" velocity="4.16174"/>
+  </joint>
+  <joint name="LHipRoll" type="revolute">
+    <parent link="LPelvis"/>
+    <child link="LHip"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.379435" upper="0.79046" velocity="4.16174"/>
+  </joint>
+  <joint name="LHipPitch" type="revolute">
+    <parent link="LHip"/>
+    <child link="LThigh"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.53589" upper="0.48398" velocity="6.40239"/>
+  </joint>
+  <joint name="LKneePitch" type="revolute">
+    <parent link="LThigh"/>
+    <child link="LTibia"/>
+    <origin rpy="0  0  0" xyz="0   0  -0.1"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-0.0923279" upper="2.11255" velocity="6.40239"/>
+  </joint>
+  <joint name="LAnklePitch" type="revolute">
+    <parent link="LTibia"/>
+    <child link="LAnkle"/>
+    <origin rpy="0  0  0" xyz="0      0     -0.1029"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.18944" upper="0.922581" velocity="6.40239"/>
+  </joint>
+  <joint name="LAnkleRoll" type="revolute">
+    <parent link="LAnkle"/>
+    <child link="LSole"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.397761" upper="0.768992" velocity="4.16174"/>
+  </joint>
+  <joint name="LShoulderPitch" type="revolute">
+    <parent link="Torso"/>
+    <child link="LShoulder"/>
+    <origin rpy="0  0  0" xyz="0     0.098  0.45"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="LShoulderRoll" type="revolute">
+    <parent link="LShoulder"/>
+    <child link="LBicep"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-0.314159" upper="1.32645" velocity="7.19407"/>
+  </joint>
+  <joint name="LElbowYaw" type="revolute">
+    <parent link="LBicep"/>
+    <child link="LElbow"/>
+    <origin rpy="0  0  0" xyz="0.105  0.015  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="LElbowRoll" type="revolute">
+    <parent link="LElbow"/>
+    <child link="LForeArm"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-1.54462" upper="-0.0349066" velocity="7.19407"/>
+  </joint>
+  <joint name="LWristYaw" type="revolute">
+    <parent link="LForeArm"/>
+    <child link="LWrist"/>
+    <origin rpy="0  0  0" xyz="0.05595  0       0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-1.82387" upper="1.82387" velocity="24.6229"/>
+  </joint>
+  <joint name="LFinger1" type="revolute">
+    <parent link="LWrist"/>
+    <child link="LFinger11"/>
+    <origin rpy="0  0  0" xyz="0.06907  0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LFinger1_1" type="revolute">
+    <parent link="LFinger11"/>
+    <child link="LFinger12"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LFinger1_2" type="revolute">
+    <parent link="LFinger12"/>
+    <child link="LFinger13"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LFinger2" type="revolute">
+    <parent link="LWrist"/>
+    <child link="LFinger21"/>
+    <origin rpy="0  0  0" xyz="0.06907 -0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LFinger2_1" type="revolute">
+    <parent link="LFinger21"/>
+    <child link="LFinger22"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LFinger2_2" type="revolute">
+    <parent link="LFinger22"/>
+    <child link="LFinger23"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LHand" type="revolute">
+    <parent link="LWrist"/>
+    <child link="LGripper"/>
+    <origin rpy="0  0  0" xyz="0.05775  0      -0.01231"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.177576" lower="0.0" upper="1.0" velocity="3.0"/>
+  </joint>
+  <joint name="LThumb1_joint" type="revolute">
+    <parent link="LWrist"/>
+    <child link="LThumb1"/>
+    <origin rpy="-3.14159  0.78539  0" xyz="0.04895  0      -0.02638"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="LThumb1_2" type="revolute">
+    <parent link="LThumb1"/>
+    <child link="LThumb2"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RHipYawPitch" type="revolute">
+    <parent link="Torso"/>
+    <child link="RPelvis"/>
+    <origin rpy="0  0  0" xyz="0    -0.05   0.265"/>
+    <axis xyz="0      0.7071  0.7071"/>
+    <limit effort="59.5" lower="-1.14529" upper="0.740718" velocity="4.16174"/>
+  </joint>
+  <joint name="RHipRoll" type="revolute">
+    <parent link="RPelvis"/>
+    <child link="RHip"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.79046" upper="0.379435" velocity="4.16174"/>
+  </joint>
+  <joint name="RHipPitch" type="revolute">
+    <parent link="RHip"/>
+    <child link="RThigh"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.53589" upper="0.48398" velocity="6.40239"/>
+  </joint>
+  <joint name="RKneePitch" type="revolute">
+    <parent link="RThigh"/>
+    <child link="RTibia"/>
+    <origin rpy="0  0  0" xyz="0   0  -0.1"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-0.0923279" upper="2.11255" velocity="6.40239"/>
+  </joint>
+  <joint name="RAnklePitch" type="revolute">
+    <parent link="RTibia"/>
+    <child link="RAnkle"/>
+    <origin rpy="0  0  0" xyz="0      0     -0.1029"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.1863" upper="0.932006" velocity="6.40239"/>
+  </joint>
+  <joint name="RAnkleRoll" type="revolute">
+    <parent link="RAnkle"/>
+    <child link="RSole"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.768992" upper="0.397935" velocity="4.16174"/>
+  </joint>
+  <joint name="RShoulderPitch" type="revolute">
+    <parent link="Torso"/>
+    <child link="RShoulder"/>
+    <origin rpy="0  0  0" xyz="0    -0.098  0.45"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="RShoulderRoll" type="revolute">
+    <parent link="RShoulder"/>
+    <child link="RBicep"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-1.32645" upper="0.314159" velocity="7.19407"/>
+  </joint>
+  <joint name="RElbowYaw" type="revolute">
+    <parent link="RBicep"/>
+    <child link="RElbow"/>
+    <origin rpy="0  0  0" xyz="0.105 -0.015  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="RElbowRoll" type="revolute">
+    <parent link="RElbow"/>
+    <child link="RForeArm"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="0.0349066" upper="1.54462" velocity="7.19407"/>
+  </joint>
+  <joint name="RWristYaw" type="revolute">
+    <parent link="RForeArm"/>
+    <child link="RWrist"/>
+    <origin rpy="0  0  0" xyz="0.05595  0       0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-1.82387" upper="1.82387" velocity="24.6229"/>
+  </joint>
+  <joint name="RFinger1" type="revolute">
+    <parent link="RWrist"/>
+    <child link="RFinger11"/>
+    <origin rpy="0  0  0" xyz="0.06907  0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RFinger1_1" type="revolute">
+    <parent link="RFinger11"/>
+    <child link="RFinger12"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RFinger1_2" type="revolute">
+    <parent link="RFinger12"/>
+    <child link="RFinger13"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RFinger2" type="revolute">
+    <parent link="RWrist"/>
+    <child link="RFinger21"/>
+    <origin rpy="0  0  0" xyz="0.06907 -0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RFinger2_1" type="revolute">
+    <parent link="RFinger21"/>
+    <child link="RFinger22"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RFinger2_2" type="revolute">
+    <parent link="RFinger22"/>
+    <child link="RFinger23"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RHand" type="revolute">
+    <parent link="RWrist"/>
+    <child link="RGripper"/>
+    <origin rpy="0  0  0" xyz="0.05775  0      -0.01231"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.177576" lower="0.0" upper="1.0" velocity="3.0"/>
+  </joint>
+  <joint name="RThumb1_joint" type="revolute">
+    <parent link="RWrist"/>
+    <child link="RThumb1"/>
+    <origin rpy="-3.14159  0.78539  0" xyz="0.04895  0      -0.02638"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="RThumb1_2" type="revolute">
+    <parent link="RThumb1"/>
+    <child link="RThumb2"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <link name="Torso">
+    <inertial>
+      <mass value="1.04956"/>
+      <origin rpy="0  0  0" xyz="-0.00413  0       0.04342"/>
+      <inertia ixx="0.00506234" ixy="1.43116e-05" ixz="0.000155191" iyy="0.00488014" iyz="-2.70793e-05" izz="0.0016103"/>
+    </inertial>
+    <collision name="Torso_collision">
+      <origin rpy="0  0  0" xyz="0    0    0.36"/>
+      <geometry>
+        <box size="0.1 0.1 0.2115"/>
+      </geometry>
+    </collision>
+    <visual name="Torso_visual">
+      <origin rpy="0  0  0" xyz="0    0    0.35"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/Torso.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Neck">
+    <inertial>
+      <mass value="0.06442"/>
+      <origin rpy="0  0  0" xyz="-1.00000000e-05   0.00000000e+00  -2.74200000e-02"/>
+      <inertia ixx="7.4993e-05" ixy="1.57e-09" ixz="-1.834e-08" iyy="7.6e-05" iyz="-5.295e-08" izz="5.53373e-06"/>
+    </inertial>
+    <visual name="Neck_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/HeadYaw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Head">
+    <inertial>
+      <mass value="0.60533"/>
+      <origin rpy="0  0  0" xyz="-0.00111  0       0.05258"/>
+      <inertia ixx="0.0026313" ixy="8.78814e-06" ixz="4.09847e-05" iyy="0.00249112" iyz="-2.99579e-05" izz="0.000985736"/>
+    </inertial>
+    <collision name="Head_collision">
+      <origin rpy="1.57  0    0" xyz="0     0     0.058"/>
+      <geometry>
+        <cylinder length="0.14" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="Head_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/HeadPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LPelvis">
+    <inertial>
+      <mass value="0.06981"/>
+      <origin rpy="0  0  0" xyz="-0.00781 -0.01114  0.02661"/>
+      <inertia ixx="8.15023e-05" ixy="-4.99449e-06" ixz="1.27482e-05" iyy="0.000101326" iyz="2.34547e-05" izz="6.26236e-05"/>
+    </inertial>
+    <visual name="LPelvis_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LHipYawPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LHip">
+    <inertial>
+      <mass value="0.13053"/>
+      <origin rpy="0  0  0" xyz="-0.01549  0.00029 -0.00515"/>
+      <inertia ixx="2.75835e-05" ixy="-2.233e-08" ixz="-4.08164e-06" iyy="9.82706e-05" iyz="-4.19e-09" izz="8.80997e-05"/>
+    </inertial>
+    <visual name="LHip_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LHipRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LThigh">
+    <inertial>
+      <mass value="0.38968"/>
+      <origin rpy="0  0  0" xyz="0.00138  0.00221 -0.05373"/>
+      <inertia ixx="0.00163672" ixy="9.2451e-07" ixz="8.53067e-05" iyy="0.00159107" iyz="3.83616e-05" izz="0.000303743"/>
+    </inertial>
+    <collision name="LThigh_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="LThigh_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LHipPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LTibia">
+    <inertial>
+      <mass value="0.29142"/>
+      <origin rpy="0  0  0" xyz="0.00453  0.00224 -0.04936"/>
+      <inertia ixx="0.00118208" ixy="6.3362e-07" ixz="3.6497e-05" iyy="0.00112865" iyz="3.94952e-05" izz="0.000193227"/>
+    </inertial>
+    <collision name="LTibia_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="LTibia_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LKneePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LAnkle">
+    <inertial>
+      <mass value="0.13416"/>
+      <origin rpy="0  0  0" xyz="0.00045  0.00029  0.00685"/>
+      <inertia ixx="3.85098e-05" ixy="-2.634e-08" ixz="3.86194e-06" iyy="7.42653e-05" iyz="1.834e-08" izz="5.48654e-05"/>
+    </inertial>
+    <visual name="LAnkle_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LAnklePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LSole">
+    <inertial>
+      <mass value="0.16184"/>
+      <origin rpy="0  0  0" xyz="0.02542  0.0033  -0.03239"/>
+      <inertia ixx="0.000269442" ixy="-5.69572e-06" ixz="0.000139379" iyy="0.000644343" iyz="1.87409e-05" izz="0.000525757"/>
+    </inertial>
+    <collision name="LSole_collision">
+      <origin rpy="0  0  0" xyz="0.02   0.005 -0.037"/>
+      <geometry>
+        <box size="0.16 0.085 0.015"/>
+      </geometry>
+    </collision>
+    <visual name="LSole_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LAnkleRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LShoulder">
+    <inertial>
+      <mass value="0.07504"/>
+      <origin rpy="0  0  0" xyz="-0.00165 -0.02663  0.00013"/>
+      <inertia ixx="8.42843e-05" ixy="-2.02802e-06" ixz="2.338e-08" iyy="1.41556e-05" iyz="-1.972e-08" izz="8.64195e-05"/>
+    </inertial>
+    <visual name="LShoulder_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LShoulderPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LBicep">
+    <inertial>
+      <mass value="0.15777"/>
+      <origin rpy="0  0  0" xyz="0.02455  0.00563  0.0033"/>
+      <inertia ixx="9.38999e-05" ixy="-4.71445e-05" ixz="-2.69947e-05" iyy="0.000371519" iyz="-2.45977e-06" izz="0.000341901"/>
+    </inertial>
+    <collision name="LBicep_collision">
+      <origin rpy="1.57  0    1.8" xyz="0.045  0     0"/>
+      <geometry>
+        <cylinder length="0.09" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="LBicep_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LShoulderRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LElbow">
+    <inertial>
+      <mass value="0.06483"/>
+      <origin rpy="0  0  0" xyz="-0.02744  0      -0.00013"/>
+      <inertia ixx="5.59715e-06" ixy="4.21e-09" ixz="4.319e-08" iyy="7.54331e-05" iyz="-1.84e-09" izz="7.64434e-05"/>
+    </inertial>
+  </link>
+  <link name="LForeArm">
+    <inertial>
+      <mass value="0.07761"/>
+      <origin rpy="0  0  0" xyz="0.02556  0.00281  0.00076"/>
+      <inertia ixx="2.53322e-05" ixy="-2.34271e-06" ixz="7.459e-08" iyy="8.91322e-05" iyz="-2.655e-08" izz="8.72873e-05"/>
+    </inertial>
+    <collision name="LForeArm_collision">
+      <origin rpy="1.57  0    1.57" xyz="0.02532  0       0"/>
+      <geometry>
+        <cylinder length="0.05065" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="LForeArm_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LElbowRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LWrist">
+    <inertial>
+      <mass value="0.18533"/>
+      <origin rpy="0  0  0" xyz="0.03434 -0.00088  0.00308"/>
+      <inertia ixx="7.05493e-05" ixy="5.71599e-06" ixz="-2.24744e-05" iyy="0.000356062" iyz="3.17771e-06" izz="0.000351919"/>
+    </inertial>
+    <collision name="LWrist_collision">
+      <origin rpy="1.27  0    1.57" xyz="0.039  0     0"/>
+      <geometry>
+        <box size="0.06 0.04 0.058"/>
+      </geometry>
+    </collision>
+    <visual name="LWrist_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LWristYaw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LFinger11">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LFinger11_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger11.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LFinger12">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LFinger12_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger12.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LFinger13">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LFinger13_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger13.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LFinger21">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LFinger21_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger21.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LFinger22">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LFinger22_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger22.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LFinger23">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LFinger23_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger23.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LGripper">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1.1e-09" ixy="0" ixz="0" iyy="1.1e-09" iyz="0" izz="1.1e-09"/>
+    </inertial>
+  </link>
+  <link name="LThumb1">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LThumb1_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LThumb1.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="LThumb2">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="LThumb2_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LThumb2.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RPelvis">
+    <inertial>
+      <mass value="0.06981"/>
+      <origin rpy="0  0  0" xyz="-0.00781  0.01114  0.02661"/>
+      <inertia ixx="8.9972e-05" ixy="5.00219e-06" ixz="1.27352e-05" iyy="0.000105526" iyz="-2.77008e-05" izz="6.68872e-05"/>
+    </inertial>
+    <collision name="RPelvis_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="RPelvis_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RHipYawPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RHip">
+    <inertial>
+      <mass value="0.13053"/>
+      <origin rpy="0  0  0" xyz="-0.01549 -0.00029 -0.00515"/>
+      <inertia ixx="2.75865e-05" ixy="-1.919e-08" ixz="-4.10822e-06" iyy="9.827e-05" iyz="2.51e-09" izz="8.81033e-05"/>
+    </inertial>
+    <visual name="RHip_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RHipRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RThigh">
+    <inertial>
+      <mass value="0.38968"/>
+      <origin rpy="0  0  0" xyz="0.00138 -0.00221 -0.05373"/>
+      <inertia ixx="0.00163748" ixy="-8.3954e-07" ixz="8.5883e-05" iyy="0.00159221" iyz="-3.91763e-05" izz="0.000303978"/>
+    </inertial>
+    <visual name="RThigh_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RHipPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RTibia">
+    <inertial>
+      <mass value="0.29142"/>
+      <origin rpy="0  0  0" xyz="0.00453 -0.00224 -0.04936"/>
+      <inertia ixx="0.00118283" ixy="-8.965e-07" ixz="2.79969e-05" iyy="0.00112828" iyz="-3.8476e-05" izz="0.000191453"/>
+    </inertial>
+    <collision name="RTibia_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="RTibia_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RKneePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RAnkle">
+    <inertial>
+      <mass value="0.13416"/>
+      <origin rpy="0  0  0" xyz="0.00045 -0.00029  0.00685"/>
+      <inertia ixx="3.85081e-05" ixy="6.434e-08" ixz="3.87466e-06" iyy="7.43108e-05" iyz="-4.58e-09" izz="5.49131e-05"/>
+    </inertial>
+    <visual name="RAnkle_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RAnklePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RSole">
+    <inertial>
+      <mass value="0.16184"/>
+      <origin rpy="0  0  0" xyz="0.02542 -0.0033  -0.03239"/>
+      <inertia ixx="0.000269302" ixy="5.87505e-06" ixz="0.000139133" iyy="0.000643474" iyz="-1.88492e-05" izz="0.000525035"/>
+    </inertial>
+    <collision name="RSole_collision">
+      <origin rpy="0  0  0" xyz="0.02  -0.005 -0.037"/>
+      <geometry>
+        <box size="0.16 0.085 0.015"/>
+      </geometry>
+    </collision>
+    <visual name="RSole_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RAnkleRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RShoulder">
+    <inertial>
+      <mass value="0.07504"/>
+      <origin rpy="0  0  0" xyz="-0.00165  0.02663  0.00013"/>
+      <inertia ixx="8.42843e-05" ixy="2.02802e-06" ixz="2.338e-08" iyy="1.41556e-05" iyz="1.972e-08" izz="8.64195e-05"/>
+    </inertial>
+    <visual name="RShoulder_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RShoulderPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RBicep">
+    <inertial>
+      <mass value="0.15777"/>
+      <origin rpy="0  0  0" xyz="0.02455 -0.00563  0.0033"/>
+      <inertia ixx="0.00011012" ixy="7.66913e-05" ixz="-2.60461e-05" iyy="0.000367577" iyz="1.20983e-05" izz="0.000354618"/>
+    </inertial>
+    <collision name="RBicep_collision">
+      <origin rpy="1.57  0   -1.8" xyz="0.045  0     0"/>
+      <geometry>
+        <cylinder length="0.09" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="RBicep_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RShoulderRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RElbow">
+    <inertial>
+      <mass value="0.06483"/>
+      <origin rpy="0  0  0" xyz="-0.02744  0      -0.00013"/>
+      <inertia ixx="5.59715e-06" ixy="4.21e-09" ixz="4.319e-08" iyy="7.54331e-05" iyz="-1.84e-09" izz="7.64434e-05"/>
+    </inertial>
+  </link>
+  <link name="RForeArm">
+    <inertial>
+      <mass value="0.07761"/>
+      <origin rpy="0  0  0" xyz="0.02556 -0.00281  0.00076"/>
+      <inertia ixx="2.53907e-05" ixy="2.33243e-06" ixz="-6.0117e-07" iyy="8.92204e-05" iyz="2.694e-08" izz="8.72484e-05"/>
+    </inertial>
+    <collision name="RForeArm_collision">
+      <origin rpy="1.57  0    1.57" xyz="0.02532  0       0"/>
+      <geometry>
+        <cylinder length="0.05065" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="RForeArm_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RElbowRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RWrist">
+    <inertial>
+      <mass value="0.18533"/>
+      <origin rpy="0  0  0" xyz="0.03434  0.00088  0.00308"/>
+      <inertia ixx="7.05493e-05" ixy="5.71599e-06" ixz="-2.24744e-05" iyy="0.000356062" iyz="3.17771e-06" izz="0.000351919"/>
+    </inertial>
+    <collision name="RWrist_collision">
+      <origin rpy="1.27  0    1.57" xyz="0.039  0     0"/>
+      <geometry>
+        <box size="0.06 0.04 0.058"/>
+      </geometry>
+    </collision>
+    <visual name="RWrist_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RWristYaw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RFinger11">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RFinger11_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger11.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RFinger12">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RFinger12_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger12.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RFinger13">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RFinger13_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger13.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RFinger21">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RFinger21_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger21.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RFinger22">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RFinger22_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger22.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RFinger23">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RFinger23_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger23.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RGripper">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1.1e-09" ixy="0" ixz="0" iyy="1.1e-09" iyz="0" izz="1.1e-09"/>
+    </inertial>
+  </link>
+  <link name="RThumb1">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RThumb1_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RThumb1.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RThumb2">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="RThumb2_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RThumb2.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <xacro:SimpleTransmission n="1" joint="HeadYaw"/>
+  <xacro:SimpleTransmission n="2" joint="HeadPitch"/>
+  <xacro:SimpleTransmission n="3" joint="LHipYawPitch"/>
+  <xacro:SimpleTransmission n="4" joint="LHipRoll"/>
+  <xacro:SimpleTransmission n="5" joint="LHipPitch"/>
+  <xacro:SimpleTransmission n="6" joint="LKneePitch"/>
+  <xacro:SimpleTransmission n="7" joint="LAnklePitch"/>
+  <xacro:SimpleTransmission n="8" joint="LAnkleRoll"/>
+  <xacro:SimpleTransmission n="9" joint="LShoulderPitch"/>
+  <xacro:SimpleTransmission n="10" joint="LShoulderRoll"/>
+  <xacro:SimpleTransmission n="11" joint="LElbowYaw"/>
+  <xacro:SimpleTransmission n="12" joint="LElbowRoll"/>
+  <xacro:SimpleTransmission n="13" joint="LWristYaw"/>
+  <xacro:SimpleTransmission n="14" joint="LFinger1"/>
+  <xacro:SimpleTransmission n="15" joint="LFinger1_1"/>
+  <xacro:SimpleTransmission n="16" joint="LFinger1_2"/>
+  <xacro:SimpleTransmission n="17" joint="LFinger2"/>
+  <xacro:SimpleTransmission n="18" joint="LFinger2_1"/>
+  <xacro:SimpleTransmission n="19" joint="LFinger2_2"/>
+  <xacro:SimpleTransmission n="20" joint="LHand"/>
+  <xacro:SimpleTransmission n="21" joint="LThumb1_joint"/>
+  <xacro:SimpleTransmission n="22" joint="LThumb1_2"/>
+  <xacro:SimpleTransmission n="23" joint="RHipYawPitch"/>
+  <xacro:SimpleTransmission n="24" joint="RHipRoll"/>
+  <xacro:SimpleTransmission n="25" joint="RHipPitch"/>
+  <xacro:SimpleTransmission n="26" joint="RKneePitch"/>
+  <xacro:SimpleTransmission n="27" joint="RAnklePitch"/>
+  <xacro:SimpleTransmission n="28" joint="RAnkleRoll"/>
+  <xacro:SimpleTransmission n="29" joint="RShoulderPitch"/>
+  <xacro:SimpleTransmission n="30" joint="RShoulderRoll"/>
+  <xacro:SimpleTransmission n="31" joint="RElbowYaw"/>
+  <xacro:SimpleTransmission n="32" joint="RElbowRoll"/>
+  <xacro:SimpleTransmission n="33" joint="RWristYaw"/>
+  <xacro:SimpleTransmission n="34" joint="RFinger1"/>
+  <xacro:SimpleTransmission n="35" joint="RFinger1_1"/>
+  <xacro:SimpleTransmission n="36" joint="RFinger1_2"/>
+  <xacro:SimpleTransmission n="37" joint="RFinger2"/>
+  <xacro:SimpleTransmission n="38" joint="RFinger2_1"/>
+  <xacro:SimpleTransmission n="39" joint="RFinger2_2"/>
+  <xacro:SimpleTransmission n="40" joint="RHand"/>
+  <xacro:SimpleTransmission n="41" joint="RThumb1_joint"/>
+  <xacro:SimpleTransmission n="42" joint="RThumb1_2"/>
+</robot>

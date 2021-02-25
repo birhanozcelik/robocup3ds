@@ -1,0 +1,916 @@
+<?xml version="1.0" ?>
+<robot name="naoH25V40">
+  <joint name="naoH25V40__HeadYaw" type="revolute">
+    <parent link="naoH25V40__Torso"/>
+    <child link="naoH25V40__Neck"/>
+    <origin rpy="0  0  0" xyz="0      0      0.4765"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="naoH25V40__HeadPitch" type="revolute">
+    <parent link="naoH25V40__Neck"/>
+    <child link="naoH25V40__Head"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="40.25" lower="-0.671952" upper="0.514872" velocity="7.19407"/>
+  </joint>
+  <joint name="naoH25V40__LHipYawPitch" type="revolute">
+    <parent link="naoH25V40__Torso"/>
+    <child link="naoH25V40__LPelvis"/>
+    <origin rpy="0  0  0" xyz="0     0.05   0.265"/>
+    <axis xyz="0      0.7071 -0.7071"/>
+    <limit effort="59.5" lower="-1.14529" upper="0.740718" velocity="4.16174"/>
+  </joint>
+  <joint name="naoH25V40__LHipRoll" type="revolute">
+    <parent link="naoH25V40__LPelvis"/>
+    <child link="naoH25V40__LHip"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.379435" upper="0.79046" velocity="4.16174"/>
+  </joint>
+  <joint name="naoH25V40__LHipPitch" type="revolute">
+    <parent link="naoH25V40__LHip"/>
+    <child link="naoH25V40__LThigh"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.53589" upper="0.48398" velocity="6.40239"/>
+  </joint>
+  <joint name="naoH25V40__LKneePitch" type="revolute">
+    <parent link="naoH25V40__LThigh"/>
+    <child link="naoH25V40__LTibia"/>
+    <origin rpy="0  0  0" xyz="0   0  -0.1"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-0.0923279" upper="2.11255" velocity="6.40239"/>
+  </joint>
+  <joint name="naoH25V40__LAnklePitch" type="revolute">
+    <parent link="naoH25V40__LTibia"/>
+    <child link="naoH25V40__LAnkle"/>
+    <origin rpy="0  0  0" xyz="0      0     -0.1029"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.18944" upper="0.922581" velocity="6.40239"/>
+  </joint>
+  <joint name="naoH25V40__LAnkleRoll" type="revolute">
+    <parent link="naoH25V40__LAnkle"/>
+    <child link="naoH25V40__LSole"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.397761" upper="0.768992" velocity="4.16174"/>
+  </joint>
+  <joint name="naoH25V40__LShoulderPitch" type="revolute">
+    <parent link="naoH25V40__Torso"/>
+    <child link="naoH25V40__LShoulder"/>
+    <origin rpy="0  0  0" xyz="0     0.098  0.45"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="naoH25V40__LShoulderRoll" type="revolute">
+    <parent link="naoH25V40__LShoulder"/>
+    <child link="naoH25V40__LBicep"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-0.314159" upper="1.32645" velocity="7.19407"/>
+  </joint>
+  <joint name="naoH25V40__LElbowYaw" type="revolute">
+    <parent link="naoH25V40__LBicep"/>
+    <child link="naoH25V40__LElbow"/>
+    <origin rpy="0  0  0" xyz="0.105  0.015  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="naoH25V40__LElbowRoll" type="revolute">
+    <parent link="naoH25V40__LElbow"/>
+    <child link="naoH25V40__LForeArm"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-1.54462" upper="-0.0349066" velocity="7.19407"/>
+  </joint>
+  <joint name="naoH25V40__LWristYaw" type="revolute">
+    <parent link="naoH25V40__LForeArm"/>
+    <child link="naoH25V40__LWrist"/>
+    <origin rpy="0  0  0" xyz="0.05595  0       0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-1.82387" upper="1.82387" velocity="24.6229"/>
+  </joint>
+  <joint name="naoH25V40__LFinger1" type="revolute">
+    <parent link="naoH25V40__LWrist"/>
+    <child link="naoH25V40__LFinger11"/>
+    <origin rpy="0  0  0" xyz="0.06907  0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LFinger1_1" type="revolute">
+    <parent link="naoH25V40__LFinger11"/>
+    <child link="naoH25V40__LFinger12"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LFinger1_2" type="revolute">
+    <parent link="naoH25V40__LFinger12"/>
+    <child link="naoH25V40__LFinger13"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LFinger2" type="revolute">
+    <parent link="naoH25V40__LWrist"/>
+    <child link="naoH25V40__LFinger21"/>
+    <origin rpy="0  0  0" xyz="0.06907 -0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LFinger2_1" type="revolute">
+    <parent link="naoH25V40__LFinger21"/>
+    <child link="naoH25V40__LFinger22"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LFinger2_2" type="revolute">
+    <parent link="naoH25V40__LFinger22"/>
+    <child link="naoH25V40__LFinger23"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LHand" type="revolute">
+    <parent link="naoH25V40__LWrist"/>
+    <child link="naoH25V40__LGripper"/>
+    <origin rpy="0  0  0" xyz="0.05775  0      -0.01231"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.177576" lower="0.0" upper="1.0" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LThumb1_joint" type="revolute">
+    <parent link="naoH25V40__LWrist"/>
+    <child link="naoH25V40__LThumb1"/>
+    <origin rpy="-3.14159  0.78539  0" xyz="0.04895  0      -0.02638"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__LThumb1_2" type="revolute">
+    <parent link="naoH25V40__LThumb1"/>
+    <child link="naoH25V40__LThumb2"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RHipYawPitch" type="revolute">
+    <parent link="naoH25V40__Torso"/>
+    <child link="naoH25V40__RPelvis"/>
+    <origin rpy="0  0  0" xyz="0    -0.05   0.265"/>
+    <axis xyz="0      0.7071  0.7071"/>
+    <limit effort="59.5" lower="-1.14529" upper="0.740718" velocity="4.16174"/>
+  </joint>
+  <joint name="naoH25V40__RHipRoll" type="revolute">
+    <parent link="naoH25V40__RPelvis"/>
+    <child link="naoH25V40__RHip"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.79046" upper="0.379435" velocity="4.16174"/>
+  </joint>
+  <joint name="naoH25V40__RHipPitch" type="revolute">
+    <parent link="naoH25V40__RHip"/>
+    <child link="naoH25V40__RThigh"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.53589" upper="0.48398" velocity="6.40239"/>
+  </joint>
+  <joint name="naoH25V40__RKneePitch" type="revolute">
+    <parent link="naoH25V40__RThigh"/>
+    <child link="naoH25V40__RTibia"/>
+    <origin rpy="0  0  0" xyz="0   0  -0.1"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-0.0923279" upper="2.11255" velocity="6.40239"/>
+  </joint>
+  <joint name="naoH25V40__RAnklePitch" type="revolute">
+    <parent link="naoH25V40__RTibia"/>
+    <child link="naoH25V40__RAnkle"/>
+    <origin rpy="0  0  0" xyz="0      0     -0.1029"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="59.5" lower="-1.1863" upper="0.932006" velocity="6.40239"/>
+  </joint>
+  <joint name="naoH25V40__RAnkleRoll" type="revolute">
+    <parent link="naoH25V40__RAnkle"/>
+    <child link="naoH25V40__RSole"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="59.5" lower="-0.768992" upper="0.397935" velocity="4.16174"/>
+  </joint>
+  <joint name="naoH25V40__RShoulderPitch" type="revolute">
+    <parent link="naoH25V40__Torso"/>
+    <child link="naoH25V40__RShoulder"/>
+    <origin rpy="0  0  0" xyz="0    -0.098  0.45"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="naoH25V40__RShoulderRoll" type="revolute">
+    <parent link="naoH25V40__RShoulder"/>
+    <child link="naoH25V40__RBicep"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="-1.32645" upper="0.314159" velocity="7.19407"/>
+  </joint>
+  <joint name="naoH25V40__RElbowYaw" type="revolute">
+    <parent link="naoH25V40__RBicep"/>
+    <child link="naoH25V40__RElbow"/>
+    <origin rpy="0  0  0" xyz="0.105 -0.015  0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-2.08567" upper="2.08567" velocity="8.26797"/>
+  </joint>
+  <joint name="naoH25V40__RElbowRoll" type="revolute">
+    <parent link="naoH25V40__RElbow"/>
+    <child link="naoH25V40__RForeArm"/>
+    <origin rpy="0  0  0" xyz="0  0  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="40.25" lower="0.0349066" upper="1.54462" velocity="7.19407"/>
+  </joint>
+  <joint name="naoH25V40__RWristYaw" type="revolute">
+    <parent link="naoH25V40__RForeArm"/>
+    <child link="naoH25V40__RWrist"/>
+    <origin rpy="0  0  0" xyz="0.05595  0       0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="40.25" lower="-1.82387" upper="1.82387" velocity="24.6229"/>
+  </joint>
+  <joint name="naoH25V40__RFinger1" type="revolute">
+    <parent link="naoH25V40__RWrist"/>
+    <child link="naoH25V40__RFinger11"/>
+    <origin rpy="0  0  0" xyz="0.06907  0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RFinger1_1" type="revolute">
+    <parent link="naoH25V40__RFinger11"/>
+    <child link="naoH25V40__RFinger12"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RFinger1_2" type="revolute">
+    <parent link="naoH25V40__RFinger12"/>
+    <child link="naoH25V40__RFinger13"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RFinger2" type="revolute">
+    <parent link="naoH25V40__RWrist"/>
+    <child link="naoH25V40__RFinger21"/>
+    <origin rpy="0  0  0" xyz="0.06907 -0.01157 -0.00304"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RFinger2_1" type="revolute">
+    <parent link="naoH25V40__RFinger21"/>
+    <child link="naoH25V40__RFinger22"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RFinger2_2" type="revolute">
+    <parent link="naoH25V40__RFinger22"/>
+    <child link="naoH25V40__RFinger23"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RHand" type="revolute">
+    <parent link="naoH25V40__RWrist"/>
+    <child link="naoH25V40__RGripper"/>
+    <origin rpy="0  0  0" xyz="0.05775  0      -0.01231"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.177576" lower="0.0" upper="1.0" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RThumb1_joint" type="revolute">
+    <parent link="naoH25V40__RWrist"/>
+    <child link="naoH25V40__RThumb1"/>
+    <origin rpy="-3.14159  0.78539  0" xyz="0.04895  0      -0.02638"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <joint name="naoH25V40__RThumb1_2" type="revolute">
+    <parent link="naoH25V40__RThumb1"/>
+    <child link="naoH25V40__RThumb2"/>
+    <origin rpy="0  0  0" xyz="0.01436  0       0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="10.0" lower="0.0" upper="0.785398" velocity="3.0"/>
+  </joint>
+  <link name="naoH25V40__Torso">
+    <inertial>
+      <mass value="1.04956"/>
+      <origin rpy="0  0  0" xyz="-0.00413  0       0.04342"/>
+      <inertia ixx="0.00506234" ixy="1.43116e-05" ixz="0.000155191" iyy="0.00488014" iyz="-2.70793e-05" izz="0.0016103"/>
+    </inertial>
+    <collision name="naoH25V40__Torso_collision">
+      <origin rpy="0  0  0" xyz="0    0    0.36"/>
+      <geometry>
+        <box size="0.1 0.1 0.2115"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__Torso_visual">
+      <origin rpy="0  0  0" xyz="0    0    0.35"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/Torso.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__Neck">
+    <inertial>
+      <mass value="0.06442"/>
+      <origin rpy="0  0  0" xyz="-1.00000000e-05   0.00000000e+00  -2.74200000e-02"/>
+      <inertia ixx="7.4993e-05" ixy="1.57e-09" ixz="-1.834e-08" iyy="7.6e-05" iyz="-5.295e-08" izz="5.53373e-06"/>
+    </inertial>
+    <visual name="naoH25V40__Neck_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/HeadYaw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__Head">
+    <inertial>
+      <mass value="0.60533"/>
+      <origin rpy="0  0  0" xyz="-0.00111  0       0.05258"/>
+      <inertia ixx="0.0026313" ixy="8.78814e-06" ixz="4.09847e-05" iyy="0.00249112" iyz="-2.99579e-05" izz="0.000985736"/>
+    </inertial>
+    <collision name="naoH25V40__Head_collision">
+      <origin rpy="1.57  0    0" xyz="0     0     0.058"/>
+      <geometry>
+        <cylinder length="0.14" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__Head_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/HeadPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LPelvis">
+    <inertial>
+      <mass value="0.06981"/>
+      <origin rpy="0  0  0" xyz="-0.00781 -0.01114  0.02661"/>
+      <inertia ixx="8.15023e-05" ixy="-4.99449e-06" ixz="1.27482e-05" iyy="0.000101326" iyz="2.34547e-05" izz="6.26236e-05"/>
+    </inertial>
+    <visual name="naoH25V40__LPelvis_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LHipYawPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LHip">
+    <inertial>
+      <mass value="0.13053"/>
+      <origin rpy="0  0  0" xyz="-0.01549  0.00029 -0.00515"/>
+      <inertia ixx="2.75835e-05" ixy="-2.233e-08" ixz="-4.08164e-06" iyy="9.82706e-05" iyz="-4.19e-09" izz="8.80997e-05"/>
+    </inertial>
+    <visual name="naoH25V40__LHip_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LHipRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LThigh">
+    <inertial>
+      <mass value="0.38968"/>
+      <origin rpy="0  0  0" xyz="0.00138  0.00221 -0.05373"/>
+      <inertia ixx="0.00163672" ixy="9.2451e-07" ixz="8.53067e-05" iyy="0.00159107" iyz="3.83616e-05" izz="0.000303743"/>
+    </inertial>
+    <collision name="naoH25V40__LThigh_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__LThigh_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LHipPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LTibia">
+    <inertial>
+      <mass value="0.29142"/>
+      <origin rpy="0  0  0" xyz="0.00453  0.00224 -0.04936"/>
+      <inertia ixx="0.00118208" ixy="6.3362e-07" ixz="3.6497e-05" iyy="0.00112865" iyz="3.94952e-05" izz="0.000193227"/>
+    </inertial>
+    <collision name="naoH25V40__LTibia_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__LTibia_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LKneePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LAnkle">
+    <inertial>
+      <mass value="0.13416"/>
+      <origin rpy="0  0  0" xyz="0.00045  0.00029  0.00685"/>
+      <inertia ixx="3.85098e-05" ixy="-2.634e-08" ixz="3.86194e-06" iyy="7.42653e-05" iyz="1.834e-08" izz="5.48654e-05"/>
+    </inertial>
+    <visual name="naoH25V40__LAnkle_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LAnklePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LSole">
+    <inertial>
+      <mass value="0.16184"/>
+      <origin rpy="0  0  0" xyz="0.02542  0.0033  -0.03239"/>
+      <inertia ixx="0.000269442" ixy="-5.69572e-06" ixz="0.000139379" iyy="0.000644343" iyz="1.87409e-05" izz="0.000525757"/>
+    </inertial>
+    <collision name="naoH25V40__LSole_collision">
+      <origin rpy="0  0  0" xyz="0.02   0.005 -0.037"/>
+      <geometry>
+        <box size="0.16 0.085 0.015"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__LSole_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LAnkleRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LShoulder">
+    <inertial>
+      <mass value="0.07504"/>
+      <origin rpy="0  0  0" xyz="-0.00165 -0.02663  0.00013"/>
+      <inertia ixx="8.42843e-05" ixy="-2.02802e-06" ixz="2.338e-08" iyy="1.41556e-05" iyz="-1.972e-08" izz="8.64195e-05"/>
+    </inertial>
+    <visual name="naoH25V40__LShoulder_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LShoulderPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LBicep">
+    <inertial>
+      <mass value="0.15777"/>
+      <origin rpy="0  0  0" xyz="0.02455  0.00563  0.0033"/>
+      <inertia ixx="9.38999e-05" ixy="-4.71445e-05" ixz="-2.69947e-05" iyy="0.000371519" iyz="-2.45977e-06" izz="0.000341901"/>
+    </inertial>
+    <collision name="naoH25V40__LBicep_collision">
+      <origin rpy="1.57  0    1.8" xyz="0.045  0     0"/>
+      <geometry>
+        <cylinder length="0.09" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__LBicep_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LShoulderRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LElbow">
+    <inertial>
+      <mass value="0.06483"/>
+      <origin rpy="0  0  0" xyz="-0.02744  0      -0.00013"/>
+      <inertia ixx="5.59715e-06" ixy="4.21e-09" ixz="4.319e-08" iyy="7.54331e-05" iyz="-1.84e-09" izz="7.64434e-05"/>
+    </inertial>
+  </link>
+  <link name="naoH25V40__LForeArm">
+    <inertial>
+      <mass value="0.07761"/>
+      <origin rpy="0  0  0" xyz="0.02556  0.00281  0.00076"/>
+      <inertia ixx="2.53322e-05" ixy="-2.34271e-06" ixz="7.459e-08" iyy="8.91322e-05" iyz="-2.655e-08" izz="8.72873e-05"/>
+    </inertial>
+    <collision name="naoH25V40__LForeArm_collision">
+      <origin rpy="1.57  0    1.57" xyz="0.02532  0       0"/>
+      <geometry>
+        <cylinder length="0.05065" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__LForeArm_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LElbowRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LWrist">
+    <inertial>
+      <mass value="0.18533"/>
+      <origin rpy="0  0  0" xyz="0.03434 -0.00088  0.00308"/>
+      <inertia ixx="7.05493e-05" ixy="5.71599e-06" ixz="-2.24744e-05" iyy="0.000356062" iyz="3.17771e-06" izz="0.000351919"/>
+    </inertial>
+    <collision name="naoH25V40__LWrist_collision">
+      <origin rpy="1.27  0    1.57" xyz="0.039  0     0"/>
+      <geometry>
+        <box size="0.06 0.04 0.058"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__LWrist_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LWristYaw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LFinger11">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LFinger11_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger11.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LFinger12">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LFinger12_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger12.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LFinger13">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LFinger13_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger13.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LFinger21">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LFinger21_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger21.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LFinger22">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LFinger22_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger22.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LFinger23">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LFinger23_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LFinger23.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LGripper">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1.1e-09" ixy="0" ixz="0" iyy="1.1e-09" iyz="0" izz="1.1e-09"/>
+    </inertial>
+  </link>
+  <link name="naoH25V40__LThumb1">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LThumb1_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LThumb1.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__LThumb2">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__LThumb2_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/LThumb2.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RPelvis">
+    <inertial>
+      <mass value="0.06981"/>
+      <origin rpy="0  0  0" xyz="-0.00781  0.01114  0.02661"/>
+      <inertia ixx="8.9972e-05" ixy="5.00219e-06" ixz="1.27352e-05" iyy="0.000105526" iyz="-2.77008e-05" izz="6.68872e-05"/>
+    </inertial>
+    <collision name="naoH25V40__RPelvis_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__RPelvis_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RHipYawPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RHip">
+    <inertial>
+      <mass value="0.13053"/>
+      <origin rpy="0  0  0" xyz="-0.01549 -0.00029 -0.00515"/>
+      <inertia ixx="2.75865e-05" ixy="-1.919e-08" ixz="-4.10822e-06" iyy="9.827e-05" iyz="2.51e-09" izz="8.81033e-05"/>
+    </inertial>
+    <visual name="naoH25V40__RHip_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RHipRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RThigh">
+    <inertial>
+      <mass value="0.38968"/>
+      <origin rpy="0  0  0" xyz="0.00138 -0.00221 -0.05373"/>
+      <inertia ixx="0.00163748" ixy="-8.3954e-07" ixz="8.5883e-05" iyy="0.00159221" iyz="-3.91763e-05" izz="0.000303978"/>
+    </inertial>
+    <visual name="naoH25V40__RThigh_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RHipPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RTibia">
+    <inertial>
+      <mass value="0.29142"/>
+      <origin rpy="0  0  0" xyz="0.00453 -0.00224 -0.04936"/>
+      <inertia ixx="0.00118283" ixy="-8.965e-07" ixz="2.79969e-05" iyy="0.00112828" iyz="-3.8476e-05" izz="0.000191453"/>
+    </inertial>
+    <collision name="naoH25V40__RTibia_collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__RTibia_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RKneePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RAnkle">
+    <inertial>
+      <mass value="0.13416"/>
+      <origin rpy="0  0  0" xyz="0.00045 -0.00029  0.00685"/>
+      <inertia ixx="3.85081e-05" ixy="6.434e-08" ixz="3.87466e-06" iyy="7.43108e-05" iyz="-4.58e-09" izz="5.49131e-05"/>
+    </inertial>
+    <visual name="naoH25V40__RAnkle_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RAnklePitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RSole">
+    <inertial>
+      <mass value="0.16184"/>
+      <origin rpy="0  0  0" xyz="0.02542 -0.0033  -0.03239"/>
+      <inertia ixx="0.000269302" ixy="5.87505e-06" ixz="0.000139133" iyy="0.000643474" iyz="-1.88492e-05" izz="0.000525035"/>
+    </inertial>
+    <collision name="naoH25V40__RSole_collision">
+      <origin rpy="0  0  0" xyz="0.02  -0.005 -0.037"/>
+      <geometry>
+        <box size="0.16 0.085 0.015"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__RSole_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RAnkleRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RShoulder">
+    <inertial>
+      <mass value="0.07504"/>
+      <origin rpy="0  0  0" xyz="-0.00165  0.02663  0.00013"/>
+      <inertia ixx="8.42843e-05" ixy="2.02802e-06" ixz="2.338e-08" iyy="1.41556e-05" iyz="1.972e-08" izz="8.64195e-05"/>
+    </inertial>
+    <visual name="naoH25V40__RShoulder_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RShoulderPitch.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RBicep">
+    <inertial>
+      <mass value="0.15777"/>
+      <origin rpy="0  0  0" xyz="0.02455 -0.00563  0.0033"/>
+      <inertia ixx="0.00011012" ixy="7.66913e-05" ixz="-2.60461e-05" iyy="0.000367577" iyz="1.20983e-05" izz="0.000354618"/>
+    </inertial>
+    <collision name="naoH25V40__RBicep_collision">
+      <origin rpy="1.57  0   -1.8" xyz="0.045  0     0"/>
+      <geometry>
+        <cylinder length="0.09" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__RBicep_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RShoulderRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RElbow">
+    <inertial>
+      <mass value="0.06483"/>
+      <origin rpy="0  0  0" xyz="-0.02744  0      -0.00013"/>
+      <inertia ixx="5.59715e-06" ixy="4.21e-09" ixz="4.319e-08" iyy="7.54331e-05" iyz="-1.84e-09" izz="7.64434e-05"/>
+    </inertial>
+  </link>
+  <link name="naoH25V40__RForeArm">
+    <inertial>
+      <mass value="0.07761"/>
+      <origin rpy="0  0  0" xyz="0.02556 -0.00281  0.00076"/>
+      <inertia ixx="2.53907e-05" ixy="2.33243e-06" ixz="-6.0117e-07" iyy="8.92204e-05" iyz="2.694e-08" izz="8.72484e-05"/>
+    </inertial>
+    <collision name="naoH25V40__RForeArm_collision">
+      <origin rpy="1.57  0    1.57" xyz="0.02532  0       0"/>
+      <geometry>
+        <cylinder length="0.05065" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__RForeArm_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RElbowRoll.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RWrist">
+    <inertial>
+      <mass value="0.18533"/>
+      <origin rpy="0  0  0" xyz="0.03434  0.00088  0.00308"/>
+      <inertia ixx="7.05493e-05" ixy="5.71599e-06" ixz="-2.24744e-05" iyy="0.000356062" iyz="3.17771e-06" izz="0.000351919"/>
+    </inertial>
+    <collision name="naoH25V40__RWrist_collision">
+      <origin rpy="1.27  0    1.57" xyz="0.039  0     0"/>
+      <geometry>
+        <box size="0.06 0.04 0.058"/>
+      </geometry>
+    </collision>
+    <visual name="naoH25V40__RWrist_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RWristYaw.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RFinger11">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RFinger11_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger11.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RFinger12">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RFinger12_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger12.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RFinger13">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RFinger13_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger13.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RFinger21">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RFinger21_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger21.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RFinger22">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RFinger22_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger22.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RFinger23">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RFinger23_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RFinger23.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RGripper">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1.1e-09" ixy="0" ixz="0" iyy="1.1e-09" iyz="0" izz="1.1e-09"/>
+    </inertial>
+  </link>
+  <link name="naoH25V40__RThumb1">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RThumb1_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RThumb1.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="naoH25V40__RThumb2">
+    <inertial>
+      <mass value="2e-06"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <visual name="naoH25V40__RThumb2_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://robocup_description/nao_blue/meshes/V40/RThumb2.dae" scale="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

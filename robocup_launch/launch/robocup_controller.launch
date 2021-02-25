@@ -1,0 +1,55 @@
+<launch>
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find robocup_launch)/config/joint_controller.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+  output="screen" args="joint_state_controller
+                                                  HeadYaw_position
+                                                  HeadPitch_position
+                                                  LHipYawPitch_position
+                                                  LHipRoll_position
+                                                  LHipPitch_position
+                                                  LKneePitch_position
+                                                  LAnklePitch_position
+                                                  LAnkleRoll_position
+                                                  LShoulderPitch_position
+                                                  LShoulderRoll_position
+                                                  LElbowYaw_position
+                                                  LElbowRoll_position
+                                                  LWristYaw_position
+                                                  LFinger1_position
+                                                  LFinger1_1_position
+                                                  LFinger1_2_position
+                                                  LFinger2_position
+                                                  LFinger2_1_position
+                                                  LFinger2_2_position
+                                                  LHand_position
+                                                  LThumb1_joint_position
+                                                  LThumb1_2_position
+                                                  RHipYawPitch_position
+                                                  RHipRoll_position
+                                                  RHipPitch_position
+                                                  RKneePitch_position
+                                                  RAnklePitch_position
+                                                  RAnkleRoll_position
+                                                  RShoulderPitch_position
+                                                  RShoulderRoll_position
+                                                  RElbowYaw_position
+                                                  RElbowRoll_position
+                                                  RWristYaw_position
+                                                  RFinger1_position
+                                                  RFinger1_1_position
+                                                  RFinger1_2_position
+                                                  RFinger2_position
+                                                  RFinger2_1_position
+                                                  RFinger2_2_position
+                                                  RHand_position
+                                                  RThumb1_joint_position
+                                                  RThumb1_2_position"/>
+
+  <!-- Run gripper sub position publisher 
+  <node name="gripper_sub_publisher" pkg="open_manipulator_gazebo" type="gripper_sub_publisher" output="screen"/>
+  -->
+
+</launch>

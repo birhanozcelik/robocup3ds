@@ -1,0 +1,176 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 1000
+
+# Position Controllers ---------------------------------------
+HeadYaw_position:
+  type: position_controllers/JointPositionController
+  joint: HeadYaw
+
+HeadPitch_position:
+  type: position_controllers/JointPositionController
+  joint: HeadPitch
+
+LHipYawPitch_position:
+  type: position_controllers/JointPositionController
+  joint: LHipYawPitch
+
+LHipRoll_position:
+  type: position_controllers/JointPositionController
+  joint: LHipRoll
+
+LHipPitch_position:
+  type: position_controllers/JointPositionController
+  joint: LHipPitch
+
+LKneePitch_position:
+  type: position_controllers/JointPositionController
+  joint: LKneePitch
+
+LAnklePitch_position:
+  type: position_controllers/JointPositionController
+  joint: LAnklePitch
+
+LAnkleRoll_position:
+  type: position_controllers/JointPositionController
+  joint: LAnkleRoll
+
+LShoulderPitch_position:
+  type: position_controllers/JointPositionController
+  joint: LShoulderPitch
+
+LShoulderRoll_position:
+  type: position_controllers/JointPositionController
+  joint: LShoulderRoll
+
+LElbowYaw_position:
+  type: position_controllers/JointPositionController
+  joint: LElbowYaw
+
+LElbowRoll_position:
+  type: position_controllers/JointPositionController
+  joint: LElbowRoll
+
+LWristYaw_position:
+  type: position_controllers/JointPositionController
+  joint: LWristYaw
+
+LFinger1_position:
+  type: position_controllers/JointPositionController
+  joint: LFinger1
+
+LFinger1_1_position:
+  type: position_controllers/JointPositionController
+  joint: LFinger1_1
+
+LFinger1_2_position:
+  type: position_controllers/JointPositionController
+  joint: LFinger1_2
+
+LFinger2_position:
+  type: position_controllers/JointPositionController
+  joint: LFinger2
+
+LFinger2_1_position:
+  type: position_controllers/JointPositionController
+  joint: LFinger2_1
+
+LFinger2_2_position:
+  type: position_controllers/JointPositionController
+  joint: LFinger2_2
+
+LHand_position:
+  type: position_controllers/JointPositionController
+  joint: LHand
+
+LThumb1_joint_position:
+  type: position_controllers/JointPositionController
+  joint: LThumb1_joint
+
+LThumb1_2_position:
+  type: position_controllers/JointPositionController
+  joint: LThumb1_2
+
+RHipYawPitch_position:
+  type: position_controllers/JointPositionController
+  joint: RHipYawPitch
+
+RHipRoll_position:
+  type: position_controllers/JointPositionController
+  joint: RHipRoll
+
+RHipPitch_position:
+  type: position_controllers/JointPositionController
+  joint: RHipPitch
+
+RKneePitch_position:
+  type: position_controllers/JointPositionController
+  joint: RKneePitch
+
+RAnklePitch_position:
+  type: position_controllers/JointPositionController
+  joint: RAnklePitch
+
+RAnkleRoll_position:
+  type: position_controllers/JointPositionController
+  joint: RAnkleRoll
+
+RShoulderPitch_position:
+  type: position_controllers/JointPositionController
+  joint: RShoulderPitch
+
+RShoulderRoll_position:
+  type: position_controllers/JointPositionController
+  joint: RShoulderRoll
+
+RElbowYaw_position:
+  type: position_controllers/JointPositionController
+  joint: RElbowYaw
+
+RElbowRoll_position:
+  type: position_controllers/JointPositionController
+  joint: RElbowRoll
+
+RWristYaw_position:
+  type: position_controllers/JointPositionController
+  joint: RWristYaw
+
+RFinger1_position:
+  type: position_controllers/JointPositionController
+  joint: RFinger1
+
+RFinger1_1_position:
+  type: position_controllers/JointPositionController
+  joint: RFinger1_1
+
+RFinger1_2_position:
+  type: position_controllers/JointPositionController
+  joint: RFinger1_2
+
+RFinger2_position:
+  type: position_controllers/JointPositionController
+  joint: RFinger2
+
+RFinger2_1_position:
+  type: position_controllers/JointPositionController
+  joint: RFinger2_1
+
+RFinger2_2_position:
+  type: position_controllers/JointPositionController
+  joint: RFinger2_2
+
+RHand_position:
+  type: position_controllers/JointPositionController
+  joint: RHand
+
+RThumb1_joint_position:
+  type: position_controllers/JointPositionController
+  joint: RThumb1_joint
+
+RThumb1_2_position:
+  type: position_controllers/JointPositionController
+  joint: RThumb1_2
+
+
+
